@@ -1,11 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controller/userController');
+const currentUser=require('../middlewares/userAuthentication.middlewares')
 
 const validator=require('../utils/expressvalidator.util')
 
 // Route to create a new user
-router.post('/addUser',validator.adduser, userController.createUser);
+router.post('/addUser',currentUser.currentUser,validator.adduser, userController.createUser);
+
+// Route to login a new user
+router.post('/login', userController.login);
+
+// Route to update token
+router.post('/tokenUpdate', userController.tokenRefresh);
 
 // Route to update a single user by ID
 router.put('/updateUser/:id',validator.updateUser, userController.updateUser);

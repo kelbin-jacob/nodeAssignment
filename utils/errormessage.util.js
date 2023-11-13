@@ -35,6 +35,10 @@ module.exports = {
 
   NEWAGE_IS_REQUIRED:"New age is required",
 
+  INVALID_TOKEN:"The Token is invalid",
+
+  TOKEN_EXPIRED:"The token is rexpired",
+
 
 
 
